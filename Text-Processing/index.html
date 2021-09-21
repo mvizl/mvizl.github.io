@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <title>4A</title>
+    <meta charset="UTF-8"/>
+    <script src="javascript/index.js"></script>
+    <link href="css/theme.css" rel="stylesheet">
+</head>
+<body>
+
+	<header>
+		<div class="page-header" style="padding:1em;">
+			<h2 style="margin:0;">
+			     4A
+			</h2>
+            <button class="btn prim" id="pageSwap">Restart</button>
+		</div>
+	</header>
+    <main class="main">
+        
+        <!-- The Modal -->
+        <div id="modalWindow" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style="height:80%;">
+                <span class="close">&times;</span>
+                <div id="asciiTable" class="modal-table" style="overflow-y:scroll;height:100%;"></div>
+                <div id="ebcdicTable" class="modal-table"></div>
+            </div>
+
+        </div>
+
+        <div class="page active" id="mainPage1">
+            <div class="page-content" style="padding:1em;">
+                <div class="page active" id="mP1Sub1">
+                    <div class="page-content">
+                        <div class="container">
+                            How many strings?<br>
+                            <input id="strAmtIn" type="number" max=1000 min=10 value="10" style="width:4em;"><br>
+                            
+                            <button class="btn prim" id="submitStrAmt">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="mP1Sub2">
+                    <div class="page-content">
+                        <button hidden class="btn sec">Back</button>
+                        <div class="container">
+                            Enter length for string #<span id="strLenCurr"></span><br> <input id="strLenIn" type="number" max=68000 min=8 value="8" style="width:4em;">
+                            <button id="submitStrLen" class="btn prim">Submit</button>
+                            <br>
+                            <input type="checkbox" id="applyToRemaining" name="applyToRemaining"></input>
+                            <label for="applyToRemaining" style="user-select:none;">Apply this length to all <span id="strLenRemain">#</span> remaining Strings </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="page" id="mP1Sub3">
+                    <div class="page-content">
+                        <div class="container">
+                            String #<span id="strDataCurr">#</span>
+                            <br>
+                            <textarea id="strDataIn" maxlength="68000" style="font-family:'Courier New', Courier, monospace;"></textarea>
+                            <input disabled type="text" style="float:right;" value="0/0" id="charsUsed"></input><br>
+                            <span>String must contain one uppercase character, one lowercase character, one numeric character, one arithmetic character, and one punctuation character</span>
+                            <div id="" class="textarea-count"></div>
+                            <div class="collapsible">
+                                <div id="submitStrDataErr" class="error-text">Error:</div>
+                            </div>
+                            <br><button id="submitStrData" class="btn prim">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+        <div class="page" id="mainPage2">
+            <div class="page-content" style="padding:1em;padding-bottom:100px">
+                <div class="bottomDock">
+                    Character References<br>
+                    <button class="btn prim" id="asciiModal">ASCII</button>
+                    <button class="btn prim" id="ebcdicModal">EBCDIC</button>
+                </div>
+                <div class="bottomLeftDock">
+                    <label for="slctEncode">Hover encoding:</label><br>
+                    <select id="slctEncode" name="slctEncode" class="btn">
+                        <option selected value=0>ASCII</option>
+                        <option value=1>EBCDIC</option>
+                    </select>
+                </div>
+
+                <div class="tbl-container">
+                    <div><strong>TABLE A: Output of strings</strong></div><hr>
+                    <input type="text" placeholder="Search" hidden> Entries per page <input id="chartAAmt" type="number" max=10 min=5 value="5" style="width:3em;">
+                    
+                    <table class="styled-table" style="font-size:1.3em; width:100%;table-layout:fixed;">
+                        <thead>
+                            <tr><th style="width:33%;">Chars entered</th><th style="width:33%;">Chars reversed</th><th style="width:33%;">Chars center-reversed</th></tr>
+                        </thead>
+                        <tbody id="strChartA">
+                        </tbody>
+                    </table>
+                    <button id="chartAPrev">Prev</button><button id="chartANext">Next</button> <span id="chartANav"></span><br>
+                </div>
+
+                <div class="tbl-container">
+                    <div><strong>TABLE B: Char occurrences in TABLE A</strong></div><hr>
+                    <input type="text" placeholder="Search" hidden> Entries per page <input id="chartBAmt" type="number" max=10 min=5 value="5" style="width:3em;">
+                    <table class="styled-table" style="font-size:1.3em;">
+                        <thead>
+                            <tr><th>Character</th><th>Occurrences</th></tr>
+                        </thead>
+                        <tbody id="strChartB">
+                        </tbody>
+                    </table>
+                    <button id="chartBPrev">Prev</button><button id="chartBNext">Next</button><span id="chartBNav"></span><br>
+                </div>
+
+                <div class="tbl-container">
+                <div><strong>TABLE C: ASCII Next</strong></div><hr>
+                    <input type="text" placeholder="Search" hidden> Entries per page <input id="chartCAmt" type="number" max=10 min=5 value="5" style="width:3em;">
+                    <table class="styled-table" style="font-size:1.3em; width:100%;table-layout:fixed;">
+                        <thead>
+                        <tr><th style="width:33%;">Chars entered</th><th style="width:33%;">Chars reversed</th><th style="width:33%;">Chars center-reversed</th></tr>
+                        </thead>
+                        <tbody id="strChartC">
+                            <tr><td>1</td><td>1</td></tr>
+                            <tr><td>a</td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                    <button id="chartCPrev">Prev</button><button id="chartCNext">Next</button><span id="chartCNav"></span><br>
+                </div>
+
+                <div class="tbl-container">
+                    <div><strong>TABLE D: ASCII Previous</strong></div><hr>
+                    <input type="text" placeholder="Search" hidden> Entries per page <input id="chartDAmt" type="number" max=10 min=5 value="5" style="width:3em;">
+                    <table class="styled-table" style="font-size:1.3em; width:100%;table-layout:fixed;">
+                        <thead>
+                        <tr><th style="width:33%;">Chars entered</th><th style="width:33%;">Chars reversed</th><th style="width:33%;">Chars center-reversed</th></tr>
+                        </thead>
+                        <tbody id="strChartD">
+                            <tr><td>1</td><td>1</td></tr>
+                            <tr><td>a</td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                    <button id="chartDPrev">Prev</button><button id="chartDNext">Next</button><span id="chartDNav"></span><br>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>	  

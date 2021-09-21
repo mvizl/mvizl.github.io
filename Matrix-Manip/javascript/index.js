@@ -474,7 +474,7 @@ function matrixOp(){
             return false;
         }
         else if (matOp == MATOP.MUL){
-            if (m2.data.length == m1.data.length){
+            if (m2.data.length == m1.data.length && m2.data[0].length == m1.data[0].length && m2.data[0][0].length == m1.data[0][0].length){
                 let result = new Matrix(1, 1, m1.data.length);
                 for (let i = 0; i < m1.data.length; i++){
                     result.data[i] = dotProduct(m1.data[i], m2.data[i]);
