@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <title>Sliding-Board Game</title>
+    <meta charset="UTF-8"/>
+    <script src="js/index.js"></script>
+    <link href="css/sBoard-styling.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<header>
+		<div class="center">
+			<h2>
+			     Sliding-board game
+			</h2>
+		</div>
+	</header>
+    <main class="main">
+        <div class="container">
+            <label for="boardSize">Select board size:</label>
+            <input name="boardSize" id="boardSize" type="number" value="4" min="4" max="8">
+            
+            <button onclick="createGame()" id="newGameBtn">New Game</button>
+            <br><br><br>
+            <div>Order the numbers from largest to smallest, left to right</div>
+            <div class="game-board-outer">
+            <div class="game-board" id="gameBoard">
+                
+            </div></div>
+            <div id="msg"></div>
+        </div>
+    </main>
+</body>
+</html>	  
