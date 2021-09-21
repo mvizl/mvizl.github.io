@@ -478,12 +478,16 @@ function matrixOp(){
                 let result = new Matrix(1, 1, m1.data.length);
                 for (let i = 0; i < m1.data.length; i++){
                     result.data[i] = dotProduct(m1.data[i], m2.data[i]);
+                    if (!result.data[i]){
+                        this.error = "Matrices have incompatible dimensions for this operation: ("+m1.data[0][0].length+"x"+m1.data[0].length+"x"+m1.data.length+") vs ("+m2.data[0][0].length+"x"+m2.data[0].length+"x"+m2.data.length+")";
+                        return false;
+                    }
                 }
                 this.result = result;
                 return true;
             }
             else{
-                this.error = "Matrices have incompatible dimensions: ("+m1.data[0][0].length+"x"+m1.data[0].length+"x"+m1.data.length+") vs ("+m2.data[0][0].length+"x"+m2.data[0].length+"x"+m2.data.length+")";
+                this.error = "Matrices have incompatible dimensions  for this operation: ("+m1.data[0][0].length+"x"+m1.data[0].length+"x"+m1.data.length+") vs ("+m2.data[0][0].length+"x"+m2.data[0].length+"x"+m2.data.length+")";
                 return false;
             }
         }
@@ -1187,6 +1191,8 @@ function dotProduct(m1,m2){
         }
         return result;
     }
+    else 
+        return false;
 }
 
 
