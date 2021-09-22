@@ -11,6 +11,9 @@ function createGame(){
             board.newGame(size);
         }
     }
+    else{
+        alert("Board size must be between 4 & 8 (inclusive)");
+    }
 }
 
 var gameStatus = {
