@@ -3,6 +3,11 @@
     margin:auto;
 }
 
+header{
+    width:1280px;
+    margin:auto;
+}
+
 .game-board{
     position:relative;
     display:block;
