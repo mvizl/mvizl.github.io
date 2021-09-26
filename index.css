@@ -48,7 +48,7 @@ a{
 .card-list{
     display:grid;
     /*grid-template-columns: 33% 33% 33%;*/
-    grid-template-columns: repeat(auto-fill,minmax(300px,32%));
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
     grid-column-gap: 1em;
     grid-row-gap: 1em;
 }
@@ -92,11 +92,11 @@ a{
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
     width: 100%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
+    aspect-ratio: 1/1;
 }
 
 .text {
