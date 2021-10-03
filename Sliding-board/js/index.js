@@ -194,6 +194,12 @@ class gameBoard{
         for (let i = 0; i < total; i++){
             data[this.positions[i]] = i;
         }
+        { // fix for intuitive solution
+            let temp = data[this.blank-1];
+            data[this.blank-1] = data[this.blank-2];
+            data[this.blank-2] = temp;
+        }
+        
 
         let blankI = this.positions[this.blank];
         let amt = RUNS > 0 ? RUNS : total *4 + Math.floor(total * (Math.random()*100)/100);//amt of randomization////////////////////////////////////////
