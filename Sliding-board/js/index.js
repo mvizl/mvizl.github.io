@@ -194,6 +194,8 @@ class gameBoard{
         for (let i = 0; i < total; i++){
             data[this.positions[i]] = i;
         }
+        
+        if (this.sizeRoot % 2 != 0)
         { // fix for intuitive solution
             let temp = data[this.blank-1];
             data[this.blank-1] = data[this.blank-2];
