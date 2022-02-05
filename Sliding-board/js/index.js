@@ -195,7 +195,7 @@ class gameBoard{
             data[this.positions[i]] = i;
         }
         
-        if (this.sizeRoot % 2 != 0)
+        if (this.sizeRoot % 2 == 0)
         { // fix for intuitive solution
             let temp = data[this.blank-1];
             data[this.blank-1] = data[this.blank-2];
