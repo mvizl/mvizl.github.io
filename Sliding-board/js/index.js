@@ -6,13 +6,13 @@ window.onload = function(){
 
 function createGame(){
     let size = parseInt(document.getElementById("boardSize").value);
-    if (size >= 4 && size <= 8){
+    if (size >= 3 && size <= 8){
         if (Number.isInteger(size)){
             board.newGame(size);
         }
     }
     else{
-        alert("Board size must be between 4 & 8 (inclusive)");
+        alert("Board size must be between 3 & 8 (inclusive)");
     }
 }
 
