@@ -137,3 +137,27 @@ header{
     width:min-content;
     text-align:center;
 }
+
+
+@keyframes blink-anim {
+    from{
+        box-shadow: 0px 0px 5px 4px lime;
+    }
+    to {
+        box-shadow: 0px 0px 15px 4px lime;
+    }
+}
+
+@-webkit-keyframes blink-anim {
+    from{
+        box-shadow: 0px 0px 5px 4px lime;
+    }
+    to {
+        box-shadow: 0px 0px 15px 4px lime;
+    }
+}
+
+.flashing{
+    animation: blink-anim 0.3s infinite linear alternate-reverse;
+    box-sizing:border-box;
+}

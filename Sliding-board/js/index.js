@@ -5,6 +5,9 @@ window.onload = function(){
 }
 
 function createGame(){
+
+    document.getElementById("newGameBtn").classList.remove("flashing");
+
     let size = parseInt(document.getElementById("boardSize").value);
     if (size >= 4 && size <= 8){
         if (Number.isInteger(size)){
